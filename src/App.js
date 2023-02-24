@@ -38,7 +38,8 @@ function App() {
   ];
 
   const fetchData = users.map((el) => {
-    return <el.componentName key={el.data.id} item={el.data} />
+    let ComponentName = el.componentName;
+      return <ComponentName key={el.data.id} item={el.data} />
   });
 
   return <Container className="App mt-5">{fetchData}</Container>;
