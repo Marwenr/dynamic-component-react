@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "react-bootstrap";
+import "./App.css";
+import ShapeOne from "./components/Layout/ShapeOne";
+import ShapeTwo from "./components/Layout/ShapeTwo";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const users = [
+    {
+      componentName: ShapeTwo,
+      data: {
+        id: 1,
+        userName: "Marwen",
+        email: "Marwen@gmail.com",
+        age: 27,
+        gender: "Male",
+      },
+    },
+    {
+      componentName: ShapeOne,
+      data: {
+        id: 2,
+        userName: "Manel",
+        email: "Manel@gmail.com",
+        age: 28,
+        gender: "Female",
+      },
+    },
+    {
+      componentName: ShapeTwo,
+      data: {
+        id: 3,
+        userName: "Ahmed",
+        email: "Ahmed@gmail.com",
+        age: 27,
+        gender: "Male",
+      },
+    },
+  ];
+
+  const fetchData = users.map((el) => {
+    return <el.componentName key={el.data.id} item={el.data} />
+  });
+
+  return <Container className="App mt-5">{fetchData}</Container>;
 }
 
 export default App;
